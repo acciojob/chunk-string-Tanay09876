@@ -1,11 +1,11 @@
 function stringChop(str, size) {
- 
-  if (str === null || size === null || size <= 0) return [];
+
+  size = Number(size);
+  if (str === null || isNaN(size) || size <= 0) return [];
 
   const result = [];
-
-  for (let i = 0; i < str.length; i += Number(size)) {
-    result.push(str.slice(i, i + Number(size)));
+  for (let i = 0; i < str.length; i += size) {
+    result.push(str.slice(i, i + size));
   }
 
   return result;
@@ -14,4 +14,4 @@ function stringChop(str, size) {
 
 const str = prompt("Enter String.");
 const size = prompt("Enter Chunk Size.");
-alert(JSON.stringify(stringChop(str, size)));
+alert(JSON.stringify(stringChop(str, size))); 
